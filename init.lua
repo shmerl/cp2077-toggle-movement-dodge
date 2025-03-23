@@ -5,7 +5,11 @@ local ToggleMovementDodge = {
 }
 
 function ToggleMovementDodge:new()
-    registerHotkey('ToggleMovementDodge', 'Toggle dodge on movement keys', function()
+    registerInput('ToggleMovementDodge', 'Toggle dodge on movement keys', function(keypress)
+        if not keypress then
+            return
+        end
+
         GameSettings.Toggle(self.movement_dodge_setting)
     end)
 
